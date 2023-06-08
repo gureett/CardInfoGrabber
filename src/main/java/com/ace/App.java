@@ -53,11 +53,17 @@ public class App {
             // Dummy implementation:
             if (cardNumber.startsWith("4")) {
                 return "Visa (Credit Card)";
-            } else if (cardNumber.startsWith("5")) {
+            } 
+            else if (cardNumber.startsWith("5")) {
                 return "Mastercard (Credit Card)";
-            } else if (cardNumber.startsWith("6")) {
+            } 
+            else if (cardNumber.startsWith("6")) {
                 return "Discover (Credit Card)";
-            } else {
+            } 
+            else if (cardNumber.startsWith("34") || cardNumber.startsWith("37")) {
+                return "American Express (Credit Card)";
+            }  
+            else {
                 return "Debit Card";
             }
         }
