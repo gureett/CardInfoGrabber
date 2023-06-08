@@ -41,7 +41,7 @@ public class App {
     private class CheckButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             String cardNumber = cardNumberField.getText();
-    
+
             if (isValidCardNumber(cardNumber)) {
                 String cardType = getCardType(cardNumber);
                 resultLabel.setText("Card type: " + cardType);
@@ -49,37 +49,54 @@ public class App {
                 resultLabel.setText("Invalid card number");
             }
         }
-    
+
         private boolean isValidCardNumber(String cardNumber) {
-            // Validate the card number format and length here
-            // You can use regular expressions or a validation algorithm to ensure it meets the required format
-            // Return true if the card number is valid; otherwise, return false
-    
-            // Dummy implementation:
-            // Check if the card number has 16 digits
-            return cardNumber.matches("\\d{16}");
+            // Remove non-digit characters from the card number
+            String sanitizedCardNumber = cardNumber.replaceAll("\\D", "");
+
+            // Check if the card number has a valid length
+            if (sanitizedCardNumber.length() < 12 || sanitizedCardNumber.length() > 19) {
+                return false;
+            }
+
+            // Apply the Luhn algorithm to validate the card number
+            int sum = 0;
+            boolean alternate = false;
+
+            for (int i = sanitizedCardNumber.length() - 1; i >= 0; i--) {
+                int digit = Character.getNumericValue(sanitizedCardNumber.charAt(i));
+
+                if (alternate) {
+                    digit *= 2;
+                    if (digit > 9) {
+                        digit = (digit % 10) + 1;
+                    }
+                }
+
+                sum += digit;
+                alternate = !alternate;
+            }
+
+            return sum % 10 == 0;
         }
-    
+
         private String getCardType(String cardNumber) {
             // Perform your card type detection logic here
-            // You can use regular expressions, validation algorithms, or a card number lookup service
-            // Return "Credit Card" or "Debit Card" based on the card number
-    
+            // You can use card number lookup services or additional validation algorithms
+            // Return the card type (e.g., "Visa", "Mastercard", "American Express") or "Unknown"
+
             // Dummy implementation:
             if (cardNumber.startsWith("4")) {
-                return "Visa (Credit Card)";
+                return "Visa";
             } else if (cardNumber.startsWith("5")) {
-                return "Mastercard (Credit Card)";
-            } else if (cardNumber.startsWith("6")) {
-                return "Discover (Credit Card)";
-            } else if (cardNumber.startsWith("34") || cardNumber.startsWith("37")) {
-                return "American Express (Credit Card)";
+                return "Mastercard";
+            } else if (cardNumber.startsWith("37") || cardNumber.startsWith("34")) {
+                return "American Express";
             } else {
-                return "Debit Card";
+                return "Unknown";
             }
         }
     }
-
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
