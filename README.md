@@ -1,6 +1,6 @@
 # CardInfoGrabber
 
-CardTypeChecker is a simple program designed to grab information on a card and display them to the user.
+CardInfoGrabber is a simple program designed to grab information on a card and display them to the user.
 
 ## Installation
 
