@@ -12,3 +12,17 @@ C:\Users\Administrator\source\repos\CardInfoGrabber\obj\Debug\CardInfoGrabber.cs
 C:\Users\Administrator\source\repos\CardInfoGrabber\obj\Debug\CardInfoGrabber.csproj.CopyComplete
 C:\Users\Administrator\source\repos\CardInfoGrabber\obj\Debug\CardInfoGrabber.exe
 C:\Users\Administrator\source\repos\CardInfoGrabber\obj\Debug\CardInfoGrabber.pdb
+C:\Users\Administrator\source\repos\github\CardInfoGrabber\bin\Debug\CardInfoGrabber.exe.config
+C:\Users\Administrator\source\repos\github\CardInfoGrabber\bin\Debug\CardInfoGrabber.exe
+C:\Users\Administrator\source\repos\github\CardInfoGrabber\bin\Debug\CardInfoGrabber.pdb
+C:\Users\Administrator\source\repos\github\CardInfoGrabber\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\source\repos\github\CardInfoGrabber\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Administrator\source\repos\github\CardInfoGrabber\obj\Debug\CardInfoGrabber.csproj.AssemblyReference.cache
+C:\Users\Administrator\source\repos\github\CardInfoGrabber\obj\Debug\CardInfoGrabber.csproj.SuggestedBindingRedirects.cache
+C:\Users\Administrator\source\repos\github\CardInfoGrabber\obj\Debug\CardInfoGrabber.Form1.resources
+C:\Users\Administrator\source\repos\github\CardInfoGrabber\obj\Debug\CardInfoGrabber.Properties.Resources.resources
+C:\Users\Administrator\source\repos\github\CardInfoGrabber\obj\Debug\CardInfoGrabber.csproj.GenerateResource.cache
+C:\Users\Administrator\source\repos\github\CardInfoGrabber\obj\Debug\CardInfoGrabber.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\source\repos\github\CardInfoGrabber\obj\Debug\CardInfoGrabber.csproj.CopyComplete
+C:\Users\Administrator\source\repos\github\CardInfoGrabber\obj\Debug\CardInfoGrabber.exe
+C:\Users\Administrator\source\repos\github\CardInfoGrabber\obj\Debug\CardInfoGrabber.pdb

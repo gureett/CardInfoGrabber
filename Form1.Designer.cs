@@ -40,6 +40,7 @@
             this.cardNumberTextBox.Name = "cardNumberTextBox";
             this.cardNumberTextBox.Size = new System.Drawing.Size(233, 20);
             this.cardNumberTextBox.TabIndex = 0;
+            this.cardNumberTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cardNumberTextBox_KeyPress);
             // 
             // resultTextBox
             // 

@@ -16,6 +16,7 @@ namespace CardInfoGrabber
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
@@ -28,27 +29,35 @@ namespace CardInfoGrabber
 
         private void checkButton_Click(object sender, EventArgs e)
         {
+            // Clears the result text box
             resultTextBox.Text = string.Empty;
-            string cardNumber = cardNumberTextBox.Text.Trim();
+            // Grabs only the digits from the textbox
+            string cardNumber = new string(cardNumberTextBox.Text.Where(char.IsDigit).ToArray());
 
+            // if-else statement
             if (IsValidCardNumber(cardNumber))
             {
+                // The variable is assigned a value from the GetCardInfo method
                 CardInfo cardInfo = GetCardInfo(cardNumber);
                 if (cardInfo != null)
                 {
+                    // Updates textbox
                     resultTextBox.Text = cardInfo.ToString();
                 }
                 else
                 {
+                    // Updates textbox
                     resultTextBox.Text = "Unable to retrieve card information";
                 }
             }
             else
             {
+                // Updates textbox
                 resultTextBox.Text = "Invalid card number";
             }
         }
 
+        // Uses luhns algorithm and other checks to ensure the entered number is a valid card number
         private bool IsValidCardNumber(string cardNumber)
         {
             string sanitizedCardNumber = new string(cardNumber.ToCharArray()
@@ -84,11 +93,14 @@ namespace CardInfoGrabber
 
         private CardInfo GetCardInfo(string cardNumber)
         {
+            // Gets the bin of the card number entered
             string bin = cardNumber.Substring(0, 6);
             string apiUrl = "https://lookup.binlist.net/" + bin;
 
+            // try catch
             try
             {
+                // Makes a new webrequest to send information to the API and get a result back
                 WebRequest request = WebRequest.Create(apiUrl);
                 request.Method = "GET";
 
@@ -111,6 +123,7 @@ namespace CardInfoGrabber
             }
             catch (Exception e)
             {
+                // For error
                 Console.WriteLine(e.Message);
                 return null;
             }
@@ -118,6 +131,7 @@ namespace CardInfoGrabber
 
         private class CardInfo
         {
+            // Gets the information from the API and returns it all
             public string CardType { get; set; }
             public string Bank { get; set; }
             public string Country { get; set; }
@@ -133,5 +147,26 @@ namespace CardInfoGrabber
                        $"Brand: {Brand}";
             }
         }
+        // Creates a new tooltip
+        private ToolTip tooltip = new ToolTip();
+
+        private void cardNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                // If a character that isn't a digit is entered, it doesn't add the character and shows the tool tip
+                e.Handled = true;
+                tooltip.Show("Only numeric digits are allowed.", cardNumberTextBox, 0, -20, 2000);
+            }
+            else
+            {
+                // Hides tooltip
+                tooltip.Hide(cardNumberTextBox);
+            }
+        }
+
+        // Allows only numeric digits to be entered
+
+
     }
 }
