@@ -1,10 +1,10 @@
-# CardTypeChecker
+# CardInfoGrabber
 
-CardTypeChecker is a simple program designed to differentiate the difference between a debit card and credit card along with the issuer (Mastercard, Visa, etc.) 
+CardTypeChecker is a simple program designed to grab information on a card and display them to the user.
 
 ## Installation
 
-CardTypeChecker is a portable program meaning all you have to do is download and run the binaries found in [releases](https://github.com/gureett/CardTypeChecker/releases).
+CardInfoGrabber is a portable program meaning all you have to do is download and run the binaries found in [releases](https://github.com/gureett/CardTypeChecker/releases).
 
 ## Usage
 
